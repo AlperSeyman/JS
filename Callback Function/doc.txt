@@ -1,0 +1,188 @@
+// callback = a function that is passed as an argument to another function.
+
+// forEach() = method used to iterate over the elements
+               of an array and apply a specified function (callback)
+               to each element
+
+               array.forEach(callback)
+
+               element, index, array are provided
+
+let numbers = [1, 2, 3, 4, 5];
+numbers.forEach(square)
+numbers.forEach(display)
+
+function double(element, index, array){
+    array[index] = element * 2;
+}
+
+function triple(element, index, array){
+    array[index] = element * 3;
+}
+
+
+function square(element, index, array){
+    array[index] = Math.pow(element, 2);
+}
+
+function cube(element, index, array){
+    array[index] = Math.pow(element, 3)
+}
+
+function display(element){
+    console.log(element)
+}
+
+
+
+
+let fruits = ["apple", "orange", "banana", "coconut"];
+
+fruits.forEach(capitalize)
+fruits.forEach(display)
+
+function upperCase(element, index, array){
+    array[index] = element.toUpperCase();
+}
+
+function lowercase(element, index, array){
+    array[index] = element.toLowerCase();
+}
+
+function capitalize(element, index, array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1);
+}
+
+function display(element) {
+    console.log(element)
+}
+
+
+
+
+// .map() = accepts a callback and applies that function to
+            each element of an array, then return a new array
+
+const numbers = [1, 2, 3, 4, 5];
+
+const new_numbers = numbers.map(cube);
+
+new_numbers.forEach(display)
+
+function square(element){
+    return Math.pow(element, 3)
+}
+
+function cube(element){
+    return Math.pow(element, 3);
+}
+
+function display(element){
+    console.log(element)
+}
+
+
+
+
+const students = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+
+const new_students = students.map(lowerCase);
+
+new_students.forEach(display);
+
+function upperCase(element){
+    return element.toUpperCase();
+}
+
+function lowerCase(element){
+    return element.toLowerCase();
+}
+
+function display(element){
+    console.log(element);
+}
+
+
+
+
+// .filter() = create a new array by filtering out elemenets
+
+let number = [1, 2, 3, 4, 5, 6, 7]
+
+const result = number.filter(isOdd)
+result.forEach(display)
+
+function isEven(element){
+    if (element % 2 === 0){
+        return element
+    }
+}
+
+function isOdd(elemnet){
+     if (elemnet % 2 === 1){
+        return elemnet
+    }
+}
+
+function display(element){
+    console.log(element)
+}
+
+
+
+
+const age = [13, 23, 12, 11, 16, 17, 18, 18, 19, 20, 60];
+
+const adult = age.filter(isAdult)
+const child = age.filter(isChild)
+
+child.forEach(display)
+
+function isAdult(element){
+    if (element >= 18){
+        return element
+    }
+}
+
+function isChild(element){
+    if (element < 18) {
+        return element
+    }
+}
+
+
+function display(element){
+    console.log(element);
+}
+
+
+
+
+const words = ["apple", "orange", "banana", "kiwi", "pomegranate", "coconut"]
+
+const shortWords = words.filter(getShortWords)
+const longWords = words.filter(getLongWords)
+
+longWords.forEach(display)
+
+function getShortWords(element){
+    if (element.length <= 6) {
+        return element
+    }
+}
+
+function getLongWords(element){
+    if (element.length > 6) {
+        return element
+    }
+}
+
+
+function display(element){
+    console.log(element)
+}
+
+
+
+
+// .reduce() = reduce the elements of an array to a single value
