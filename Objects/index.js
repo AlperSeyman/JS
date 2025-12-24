@@ -41,33 +41,81 @@
 //          ex. static keyword, encapsulation, inheritance
 
 
-class Product{
-    constructor(name, price){
-        this.name = name;
-        this.price = price;
+// class Product{
+//     constructor(name, price){
+//         this.name = name;
+//         this.price = price;
 
+//     }
+//     displayProduct(){
+//         console.log(`Name: ${this.name}`)
+//         console.log(`Price: $${this.price.toFixed(2)}`)
+//     }
+//     calculateTotal(salesTax){
+//         return this.price + (this.price * salesTax)
+//     }
+// }
+
+// const salesTax = 0.05;
+
+
+// const product1 = new Product("Shirt", 19.99);
+// const product2 = new Product("Pants", 22.50);
+// const product3 = new Product("Underwear", 100.00);
+
+// product1.displayProduct()
+
+// const total = product1.calculateTotal(salesTax)
+// console.log(`Total price (with tax): $${total.toFixed(2)}`);
+
+
+// static = keyword that defines properties or methods that belong to a class itself
+//          rather than the objects created from that class (class own anything StaticRange, not the objects)
+//          belongs to class
+
+
+// class MathUtil{
+//     static PI = 3.14;
+
+//     static getDiameter(radius){
+//         return radius * 2;
+//     }
+//     static getCircumference(radius){
+//         return 2 * this.PI * radius;
+//     }
+//     static getArea(radius){
+//         return this.PI * radius * radius
+//     }
+// }
+
+// console.log(MathUtil.PI);
+// console.log(MathUtil.getDiameter(10));
+// console.log(MathUtil.getCircumference(10));
+// console.log(MathUtil.getArea(10));
+
+
+
+
+class User{
+
+    static userCount = 0;
+
+    constructor(username){
+        this.username = username;
+        User.userCount++;
     }
-    displayProduct(){
-        console.log(`Name: ${this.name}`)
-        console.log(`Price: $${this.price.toFixed(2)}`)
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`)
     }
-    calculateTotal(salesTax){
-        return this.price + (this.price * salesTax)
+    sayHello(){
+        console.log(`Hello, my username is ${this.username}`)
     }
 }
 
-const salesTax = 0.05;
 
 
-const product1 = new Product("Shirt", 19.99);
-const product2 = new Product("Pants", 22.50);
-const product3 = new Product("Underwear", 100.00);
+const user1 = new User("SpongeBob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
 
-product1.hello()
-product1.displayProduct()
-
-const total = product1.calculateTotal(salesTax)
-console.log(`Total price (with tax): $${total.toFixed(2)}`);
-
-
-
+User.getUserCount()
