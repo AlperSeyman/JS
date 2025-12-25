@@ -130,49 +130,144 @@
         //    this = this object
         //    super = parent
 
-class Animal{
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
+// class Animal{
+//     constructor(name, age){
+//         this.name = name;
+//         this.age = age;
+//     }
+//     move(speed){
+//         console.log(`The ${this.name} moves at a speed of ${speed} mph`)
+//     }
+// }
+
+// class Rabbit extends Animal{
+//     constructor(name, age, runSpeed){
+//         super(name,age)
+//         this.runSpeed = runSpeed;
+//     }
+//     run(){
+//         console.log(`This ${this.name} can run`)
+//         super.move(this.runSpeed)
+//     }
+// }
+// class Fish extends Animal{
+//     constructor(name, age, swimSpeed){
+//         super(name, age)
+//         this.swimSpeed = swimSpeed;
+//     }
+//     swim(){
+//         console.log(`This ${this.name} can swim`)
+//         super.move(this.swimSpeed)
+//     }
+// }
+// class Hawk extends Animal{
+//     constructor(name, age, flySpeed){
+//         super(name, age)
+//         this.flySpeed = flySpeed;
+//     }
+//     fly(){
+//         console.log(`This ${this.name} can fly`)
+//         super.move(this.flySpeed)
+//     }
+// }
+
+// const rabbit = new Rabbit("rabbit", 1, 25);
+// const fish = new Fish("fish", 2, 12);
+// const hawk = new Hawk("hawk", 3, 50);
+
+// rabbit.run()
+
+
+
+
+// getter = special method that makes a property readable
+// setter = special method that makes a property writeable
+
+// validate and modify a value when reading/writing a property
+
+// class Rectangle{
+//     constructor(width, height){
+//         this.width=width;
+//         this.height=height;
+//     }
+
+//     set width(newWidth){
+//         if(newWidth > 0){
+//             this._width = newWidth
+//         }
+//         else{
+//             console.error("Width must be a positive number");
+//         }
+//     }
+//     get width(){
+//         return this._width;
+//     }
+
+
+//     set height(newHeight){
+//         if(newHeight > 0){
+//             this._height = newHeight;
+//         }
+//         else{
+//             console.error("Heigth must be a positive number");
+//         }
+//     }
+//     get height(){
+//         return this._height
+//     }
+
+// }
+
+// const rectangle = new Rectangle(3, 4)
+// console.log(`Width: ${rectangle.width} Height: ${rectangle.height}`)
+
+
+class Person{
+
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age
     }
-    move(speed){
-        console.log(`The ${this.name} moves at a speed of ${speed} mph`)
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName;
+        }
+        else{
+            console.error("First Name must be non-empty string");
+        }
+    }
+    get firstName(){
+        return this._firstName;
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName;
+        }
+        else{
+            console.error("Last Name must be non-empty string");
+        }
+    }
+    get lastName(){
+        return this._lastName
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge>=0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non-negativ number");
+        }
+    }
+    get age(){
+        return this._age;
     }
 }
 
-class Rabbit extends Animal{
-    constructor(name, age, runSpeed){
-        super(name,age)
-        this.runSpeed = runSpeed;
-    }
-    run(){
-        console.log(`This ${this.name} can run`)
-        super.move(this.runSpeed)
-    }
-}
-class Fish extends Animal{
-    constructor(name, age, swimSpeed){
-        super(name, age)
-        this.swimSpeed = swimSpeed;
-    }
-    swim(){
-        console.log(`This ${this.name} can swim`)
-        super.move(this.swimSpeed)
-    }
-}
-class Hawk extends Animal{
-    constructor(name, age, flySpeed){
-        super(name, age)
-        this.flySpeed = flySpeed;
-    }
-    fly(){
-        console.log(`This ${this.name} can fly`)
-        super.move(this.flySpeed)
-    }
-}
 
-const rabbit = new Rabbit("rabbit", 1, 25);
-const fish = new Fish("fish", 2, 12);
-const hawk = new Hawk("hawk", 3, 50);
+const person = new Person("Spongebob", "Squarepants", 30);
 
-rabbit.run()
+console.log(`Firs Name: ${person.firstName} Last Name: ${person.lastName} Age: ${person.age}`)
