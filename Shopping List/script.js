@@ -6,25 +6,58 @@
 // </li>
 
 const shoppingList = document.querySelector(".shopping-list");
+const shoppingForm = document.querySelector(".shopping-form")
 
-loadItems()
 
-function loadItems(){
+shoppingForm.addEventListener("submit", handleFormSubmit)
+
+
+loadItem()
+
+function loadItem(){
 
     const items = [
-        {id : 1, name : "Egg", completed : false},
-        {id : 2, name : "Fish", completed : true},
-        {id : 3, name : "Süt", completed : false},
-    ];
+        {id:1, name:"item1", completed:false},
+        {id:2, name:"item2", completed:false},
+        {id:3, name:"item3", completed:false},
+    ]
 
     shoppingList.innerHTML = ""
 
     for (let item of items) {
         const li = createListItem(item)
-        shoppingList.append(li)
+        shoppingList.appendChild(li)
+    }
+}
+
+
+function generateId(){
+    return Date.now().toString()
+}
+
+function addItem(input){
+    const newItem = createListItem({
+        id:generateId(),
+        name:input.value,
+        completed:false,
+    });
+    shoppingList.appendChild(newItem)
+
+    input.value = "";
+}
+
+function handleFormSubmit(e){
+    e.preventDefault()
+
+    const input = document.getElementById("item_name")
+    if (input.value.trim().length === 0){
+        alert("Enter new item");
+        return;
     }
 
+    addItem(input)
 }
+
 
 function createListItem(item){
 
@@ -33,6 +66,9 @@ function createListItem(item){
     input.type = "checkbox";
     input.classList.add("form-check-input");
     input.checked = item.completed;
+    input.addEventListener("change", ()=>{
+        li.toggleAttribute("item-completed", input.checked)
+    })
 
     //  item
     const div = document.createElement("div");
@@ -46,6 +82,7 @@ function createListItem(item){
     // li
     const li = document.createElement("li");
     li.className = "border rounded p-3 mb-1";
+    li.toggleAttribute("item-completed", item.completed);
 
     li.appendChild(input)
     li.appendChild(div)
