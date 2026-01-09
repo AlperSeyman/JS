@@ -75,6 +75,14 @@ function createListItem(item){
     const div = document.createElement("div");
     div.textContent = item.name;
     div.classList.add("item-name")
+    div.addEventListener("click", openUpdateItem)
+    div.addEventListener("blur", closeUpdateItem)
+    div.addEventListener("keydown", (e)=>{
+        if(e.key == "Enter"){
+            e.preventDefault()
+            closeUpdateItem(e)
+        }
+    })
 
     // delete icon
     const deleteIcon = document.createElement("i")
@@ -86,6 +94,7 @@ function createListItem(item){
     li.className = "border rounded p-3 mb-1";
     li.toggleAttribute("item-completed", item.completed);
 
+
     li.appendChild(input)
     li.appendChild(div)
     li.appendChild(deleteIcon)
@@ -94,6 +103,17 @@ function createListItem(item){
 }
 
 function deleteItem(e){
-    const li = (e.target.parentElement)
+    const li = e.target.parentElement
     shoppingList.removeChild(li)
+}
+
+function openUpdateItem(e){
+    const li = e.target.parentElement
+    if(li.hasAttribute("item-completed") == false){
+        e.target.contentEditable = true
+    }
+}
+
+function closeUpdateItem(e) {
+    e.target.contentEditable = false
 }
