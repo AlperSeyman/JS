@@ -9,10 +9,11 @@ const shoppingList = document.querySelector(".shopping-list");
 const shoppingForm = document.querySelector(".shopping-form")
 
 
-shoppingForm.addEventListener("submit", handleFormSubmit)
+document.addEventListener("DOMContentLoaded", ()=>{
+    shoppingForm.addEventListener("submit", handleFormSubmit)
+    loadItem()
+})
 
-
-loadItem()
 
 function loadItem(){
 
@@ -78,6 +79,7 @@ function createListItem(item){
     // delete icon
     const deleteIcon = document.createElement("i")
     deleteIcon.className = "fs-3 bi bi-x text-danger delete-icon";
+    deleteIcon.addEventListener("click", deleteItem)
 
     // li
     const li = document.createElement("li");
@@ -89,4 +91,9 @@ function createListItem(item){
     li.appendChild(deleteIcon)
 
     return li
+}
+
+function deleteItem(e){
+    const li = (e.target.parentElement)
+    shoppingList.removeChild(li)
 }
