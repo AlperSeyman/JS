@@ -51,6 +51,8 @@ function addItem(input){
     shoppingList.appendChild(newItem)
 
     input.value = "";
+
+    updateFilterItems()
 }
 
 function handleFormSubmit(e){
@@ -65,6 +67,12 @@ function handleFormSubmit(e){
     addItem(input)
 }
 
+function toogleCompleted(e){
+    const li = e.target.parentElement;
+    li.toggleAttribute("item-completed", e.target.checked);
+
+    updateFilterItems();
+}
 
 function createListItem(item){
 
@@ -73,9 +81,7 @@ function createListItem(item){
     input.type = "checkbox";
     input.classList.add("form-check-input");
     input.checked = item.completed;
-    input.addEventListener("change", ()=>{
-        li.toggleAttribute("item-completed", input.checked)
-    })
+    input.addEventListener("change", toogleCompleted)
 
     //  item
     const div = document.createElement("div");
@@ -136,4 +142,35 @@ function handleFilterSelection(e){
 
     filterBtn.classList.add("btn-primary")
     filterBtn.classList.remove("btn-secondary")
+
+    filterItem(filterBtn.getAttribute("item-filter"))
+}
+
+function filterItem(filterType){
+
+    const li_items = shoppingList.querySelectorAll("li")
+
+    for (const li of li_items) {
+
+        li.classList.remove("d-block")
+        li.classList.remove("d-none")
+
+        const completed = li.hasAttribute("item-completed")
+
+        if(filterType == "completed"){
+            // Show only completed items
+            li.classList.toggle(completed ? "d-flex":"d-none")
+        }else if(filterType == "incomplete"){
+            // Show only  incomplete items
+            li.classList.toggle(completed ? "d-none":"d-flex")
+        }else{
+            // Show all items.
+            li.classList.toggle("d-flex")
+        }
+    }
+}
+
+function updateFilterItems(){
+    const activeFilter = document.querySelector(".btn-primary[item-filter");
+    filterItem(activeFilter.getAttribute("item-filter"));
 }
