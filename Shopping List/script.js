@@ -7,11 +7,17 @@
 
 const shoppingList = document.querySelector(".shopping-list");
 const shoppingForm = document.querySelector(".shopping-form")
-
+const filterButtons = document.querySelectorAll(".filter-buttons button")
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    shoppingForm.addEventListener("submit", handleFormSubmit)
+
     loadItem()
+
+    shoppingForm.addEventListener("submit", handleFormSubmit)
+
+    for (let button of filterButtons) {
+        button.addEventListener("click", handleFilterSelection)
+    }
 })
 
 
@@ -116,4 +122,18 @@ function openUpdateItem(e){
 
 function closeUpdateItem(e) {
     e.target.contentEditable = false
+}
+
+
+function handleFilterSelection(e){
+
+    const filterBtn = e.target
+
+    for (const button of filterButtons) {
+        button.classList.add("btn-secondary")
+        button.classList.remove("btn-primary")
+    }
+
+    filterBtn.classList.add("btn-primary")
+    filterBtn.classList.remove("btn-secondary")
 }
