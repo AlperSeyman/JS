@@ -1,0 +1,46 @@
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Added to keep the slider from getting too huge */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px; /* Optional: smooth corners */
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+    /* Optional: adds a smooth fade when images switch */
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+
+img.displaySlide {
+    display: block;
+}
+
+/* Positioning the Buttons */
+button {
+    padding: 10px 15px;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
