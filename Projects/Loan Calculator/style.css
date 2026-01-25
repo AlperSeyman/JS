@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Fixed: Added vh unit */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+}
+
+.container {
+    background-color: white;
+    color: #333;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 100%;
+    max-width: 400px;
+}
+
+h4 {
+    margin-top: 0;
+    font-size: 24px;
+    color: darkcyan;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+p {
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.input {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-color: darkcyan; /* Highlights input on click */
+}
+
+.payment {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e0f2f1;
+    border-radius: 8px;
+    color: darkcyan;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+}
