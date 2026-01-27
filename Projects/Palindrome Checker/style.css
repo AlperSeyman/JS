@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a2e; /* Deep midnight blue */
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Wrapping your HTML in a div with this class is recommended */
+.container {
+    background: #16213e;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 20px 20px 60px #10182b, -20px -20px 60px #1c2a51;
+    text-align: center;
+    width: 320px;
+}
+
+h3 {
+    color: #e94560; /* Vibrant accent color */
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+input {
+    width: 100%;
+    background: #1a1a2e;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: inset 6px 6px 12px #10182b, inset -6px -6px 12px #22325b;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    box-shadow: inset 2px 2px 5px #10182b, inset -2px -2px 5px #22325b;
+    color: #e94560;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #e94560;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #ff4d6d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+#result-text{
+    color: white;
+}
